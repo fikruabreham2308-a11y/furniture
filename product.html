@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROHAM | Premium Furniture</title>
+    <link rel="stylesheet" href="css/product.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-flex">
+            <div class="logo">ROHAM<span>.</span></div>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Search furniture...">
+                <button>🔍</button>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li class="cart-link">
+                    <a href="cart.html">Cart <span id="cart-count">0</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="category-strip">
+        <div class="container cat-flex">
+            <a href="#">Living Room</a>
+            <a href="#">Bedroom</a>
+            <a href="#">Office</a>
+            <a href="#">Kitchen</a>
+            <a href="#">Outdoor</a>
+        </div>
+    </div>
+
+    <main class="container product-main">
+        <div class="product-stage">
+            <div class="image-wrapper">
+                <img id="mainImage" src="image/fike18.jpg" alt="Featured Product">
+                
+                <div class="image-overlay">
+                    <div class="overlay-details">
+                        <span class="price-tag">18,500 ETB</span>
+                        <p class="img-desc">Ergonomic Luxury Sofa - Handcrafted for Comfort.</p>
+                    </div>
+                    <div class="overlay-btns">
+                        <a href="cart.html" class="btn-overlay cart" onclick="addToCart()">Add to Cart</a>
+                        <a href="shop.html" class="btn-overlay buy">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="thumb-strip">
+                <img src="image/fike18.jpg" class="thumb active" onclick="updateImg(this)">
+                <img src="image/fike19.jpg" class="thumb" onclick="updateImg(this)">
+                <img src="image/fike20.jpg" class="thumb" onclick="updateImg(this)">
+            </div>
+        </div>
+
+        <section class="featured-section">
+            <h2>Featured Products</h2>
+            <div class="product-grid">
+                <div class="prod-card"><img src="image/fike21.jpg"><p>Modern Chair</p></div>
+                <div class="prod-card"><img src="image/fike22.jpg"><p>Classic Bed</p></div>
+                <div class="prod-card"><img src="image/fike13.jpg"><p>Office Desk</p></div>
+                <div class="prod-card"><img src="image/fike15.jpg"><p>Wood Table</p></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <h3>Company Information</h3>
+            <table class="footer-table">
+                <tr>
+                    <th>Organization</th>
+                    <th>Establishment</th>
+                
+                </tr>
+                <tr>
+                    <td>ROHAM Furniture</td>
+                    <td>2020</td>
+                
+                </tr>
+                <tr>
+                    <td>Hossana Branch</td>
+                    <td>2022</td>
+                    
+                </tr>
+                
+            </table>
+            <p class="copy">&copy; 2026 ROHAM. Quality Built to Last.</p>
+        </div>
+    </footer>
+
+    <script src="js/product.js"></script>
+</body>
+</html>

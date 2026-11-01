@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hossana Furniture | Quality for Every Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-flex">
+            <div class="logo">Hossana <span>Furniture</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html" class="nav-login">Login</a></li>
+            </ul>
+            <div class="nav-right">
+                <div class="cart-icon" onclick="toggleCart()">
+                    <span class="icon">🛒</span>
+                    <span id="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Quality Furniture for Every Home in Hossana</h1>
+            <p>Modern designs, locally crafted for your maximum comfort.</p>
+            <div class="hero-btns">
+                <a href="shop.html" class="btn-primary">Shop Now</a>
+                <a href="#categories" class="btn-outline">Browse Styles</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="categories" class="categories container">
+        <div class="section-title">
+            <h2>Browse Categories</h2>
+            <div class="underline"></div>
+        </div>
+        
+        <div class="category-grid">
+            <div class="cat-card" style="background-image: url('image/fike19.jpg');">
+                <div class="cat-overlay">
+                    <button class="quick-add" onclick="addToCart('Sofa', '18500')">＋ Add to Cart</button>
+                </div>
+                <div class="cat-label">Sofas</div>
+            </div>
+
+            <div class="cat-card" style="background-image: url('image/fike12.jpg');">
+                <div class="cat-overlay">
+                    <button class="quick-add" onclick="addToCart('Chair', '4500')">＋ Add to Cart</button>
+                </div>
+                
+                <div class="cat-label">Chairs</div>
+            </div>
+
+            <div class="cat-card" style="background-image: url('image/fike13.jpg');">
+                <div class="cat-overlay">
+                    <button class="quick-add" onclick="addToCart('Office Desk', '12000')">＋ Add to Cart</button>
+                </div>
+                <div class="cat-label">Office</div>
+            </div>
+
+            <div class="cat-card" style="background-image: url('image/fike14.jpg');">
+                <div class="cat-overlay">
+                    <button class="quick-add" onclick="addToCart('Dining Table', '9500')">＋ Add to Cart</button>
+                </div>
+                <div class="cat-label">Tables</div>
+            </div>
+
+            <div class="cat-card" style="background-image: url('image/fike16.jpg');">
+                <div class="cat-overlay">
+                    <button class="quick-add" onclick="addToCart('Lounge Chair', '7200')">＋ Add to Cart</button>
+                </div>
+                <div class="cat-label">Lounge</div>
+            </div>
+
+            <div class="cat-card" style="background-image: url('image/fike17.jpg');">
+                <div class="cat-overlay">
+                    <button class="quick-add" onclick="addToCart('Showroom Piece', '15000')">＋ Add to Cart</button>
+                </div>
+                <div class="cat-label">Showroom</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-info">
+                <div class="logo">Hossana <span>Furniture</span></div>
+                <p>Quality furniture since 2026. Made in Ethiopia.</p>
+            </div>
+            <p class="copyright">&copy; 2026 Hossana Furniture Store. Hadiya Zone.</p>
+        </div>
+    </footer>
+
+
+    <div id="promo-display" style="padding: 20px; border: 2px solid #0056b3; border-radius: 15px; text-align: center; max-width: 400px; margin: 20px auto;">
+    <h2>Featured Product</h2>
+    <div id="feat-content">
+        <p>No item featured yet.</p>
+    </div>
+</div>
+
+<script>
+    function loadPromotion() {
+        const img = localStorage.getItem('feat_img');
+        const name = localStorage.getItem('feat_name');
+        const price = localStorage.getItem('feat_price');
+
+        if(img) {
+            document.getElementById('feat-content').innerHTML = `
+                <img src="${img}" style="width: 100%; border-radius: 10px;">
+                <h3>${name}</h3>
+                <p style="color: #d4af37; font-weight: bold;">${price} ETB</p>
+            `;
+        }
+    }
+    window.onload = loadPromotion;
+</script>
+    <script src="js/index.js"></script>
+</body>
+</html>

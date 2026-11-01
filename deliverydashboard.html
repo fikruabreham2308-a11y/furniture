@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Panel | FIKE Furniture</title>
+    <link rel="stylesheet" href="css/deliverydashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="sidebar">
+    <div class="sidebar-top">
+        <div class="profile">
+            <h3>Delivery Panel</h3>
+        </div>
+        <ul>
+            <li onclick="showPage('assigned')" id="nav-assigned" class="active"><i class="fas fa-clipboard-list"></i> Assigned</li>
+            <li onclick="showPage('delivered')" id="nav-delivered"><i class="fas fa-check-circle"></i> Delivered Orders</li>
+            <li onclick="showPage('reports')" id="nav-reports"><i class="fas fa-chart-line"></i> Performance Reports</li>
+        </ul>
+    </div>
+    <div class="sidebar-bottom">
+        <li onclick="window.location.href='login.html'" class="logout"><i class="fas fa-power-off"></i> Logout</li>
+    </div>
+</div>
+
+<div class="main-content">
+    <div class="stats-container">
+        <div class="stat-card blue-border">
+            <h2 id="countAssigned">0</h2>
+            <p>Total Tasks</p>
+        </div>
+        <div class="stat-card green-border">
+            <h2 id="countDelivered">0</h2>
+            <p>Success</p>
+        </div>
+        <div class="stat-card orange-border">
+            <h2 id="countTransit">0</h2>
+            <p>In Transit</p>
+        </div>
+        <div class="stat-card red-border">
+            <h2 id="countCanceled">0</h2>
+            <p>Canceled</p>
+        </div>
+    </div>
+
+    <section id="assigned" class="page">
+        <div class="section-header">
+            <h1>Current Tasks</h1>
+            <span class="date-now" id="currentDate"></span>
+        </div>
+        <div class="table-wrapper">
+            <table class="driver-table">
+                <thead>
+                    <tr>
+                        <th>OrID</th><th>Customer</th><th>Amount</th><th>Status</th><th>Address</th><th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="assignedBody"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="delivered" class="page hidden">
+        <h1>Delivery History</h1>
+        <div class="table-wrapper">
+            <table class="driver-table">
+                <thead>
+                    <tr>
+                        <th>OrID</th><th>Customer</th><th>Amount</th><th>Delivered Date</th><th>Address</th>
+                    </tr>
+                </thead>
+                <tbody id="deliveredBody"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="reports" class="page hidden">
+        <h1>Analytical Overview</h1>
+        
+        <div class="report-grid">
+            <div class="chart-box">
+                <h3>Order Status Volume</h3>
+                <canvas id="statusChart"></canvas>
+            </div>
+
+            <div class="metrics-column">
+                <div class="metric-card">
+                    <i class="fas fa-percentage"></i>
+                    <div>
+                        <p>Success Rate</p>
+                        <h2 id="successRate">0%</h2>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <div>
+                        <p>Total Handled Value</p>
+                        <h2 id="totalValue">0 ETB</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-box full-width">
+            <h3>Weekly Delivery Trends</h3>
+            <canvas id="lineChart"></canvas>
+        </div>
+    </section>
+</div>
+
+<script src="js/deliverydashboard.js"></script>
+</body>
+</html>

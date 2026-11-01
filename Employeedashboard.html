@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Panel | FIKE Furniture</title>
+    <link rel="stylesheet" href="css/employeedashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="sidebar">
+    <div class="sidebar-top">
+        <h2>ROHAMA STAFF</h2>
+        <ul>
+            <li onclick="showPage('payments')"><i class="fas fa-receipt"></i> Check Payment</li>
+            <li onclick="showPage('orders')"><i class="fas fa-shopping-basket"></i> Orders</li>
+            <li onclick="showPage('delivery')"><i class="fas fa-truck"></i> Delivery</li>
+            <li onclick="showPage('reports')"><i class="fas fa-file-invoice-dollar"></i> Reports</li>
+        </ul>
+    </div>
+    <div class="sidebar-bottom">
+        <li onclick="location.href='login.html'" class="logout-link"><i class="fas fa-sign-out-alt"></i> Logout</li>
+    </div>
+</div>
+
+<div class="main">
+    <div id="payments" class="page">
+        <h1>Payment Verification</h1>
+        <table class="advanced-table">
+            <thead>
+                <tr>
+                    <th>OR ID</th><th>Customer</th><th>Amount</th><th>Txn ID</th>
+                    <th>Proof</th><th>Address</th><th>Status</th><th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="paymentTable"></tbody>
+        </table>
+    </div>
+
+    <div id="orders" class="page hidden">
+        <h1>Order Management</h1>
+        <div class="cards">
+            <div class="card"><h2 id="ordTotal">0</h2><p>Total Orders</p></div>
+            <div class="card"><h2 id="ordToday">0</h2><p>Today's Orders</p></div>
+            <div class="card"><h2 id="ordReady">0</h2><p>Ready to Order</p></div>
+            <div class="card"><h2 id="ordCanceled">0</h2><p>Canceled Orders</p></div>
+        </div>
+        <table class="advanced-table">
+            <thead>
+                <tr>
+                    <th>OR ID</th><th>Customer</th><th>Price</th>
+                    <th>Payment</th><th>Address</th><th>Assign</th>
+                </tr>
+            </thead>
+            <tbody id="orderTable"></tbody>
+        </table>
+    </div>
+
+    <div id="delivery" class="page hidden">
+        <h1>Delivery Tracking</h1>
+        <div class="cards">
+            <div class="card"><h2 id="delAssign">0</h2><p>Assigned to deliver</p></div>
+            <div class="card"><h2 id="delPending">0</h2><p>Pending delivery</p></div>
+            <div class="card"><h2 id="delTransit">0</h2><p>In Transit</p></div>
+            <div class="card"><h2 id="delActive">0</h2><p>On Delivery</p></div>
+            <div class="card"><h2 id="delDone">0</h2><p>Delivered</p></div>
+            <div class="card"><h2 id="delCancel">0</h2><p>Canceled</p></div>
+        </div>
+        <table class="advanced-table">
+            <thead>
+                <tr><th>OR ID</th><th>Customer</th><th>Status</th><th>Role</th></tr>
+            </thead>
+            <tbody id="deliveryTable"></tbody>
+        </table>
+    </div>
+
+    <div id="reports" class="page hidden">
+        <h1>Operations Report</h1>
+    
+            <div class="cards">
+            <div class="card"><h2 id="delAssign">0</h2><p>Total Assigned </p></div>
+            <div class="card"><h2 id="delPending">0</h2><p>Pending delivery</p></div>
+            <div class="card"><h2 id="delTransit">0</h2><p>In Transit</p></div>
+            <div class="card"><h2 id="delActive">0</h2><p>On Delivery</p></div>
+            <div class="card"><h2 id="delDone">0</h2><p>Delivered</p></div>
+            <div class="card"><h2 id="delCancel">0</h2><p>Canceled</p></div>
+            <div class="card"><h2 id="delCancel">0</h2><p>Pending cash</p></div>
+        </div>
+            
+
+        
+        <div class="chart-container">
+            <canvas id="opsChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<script src="js/employeedashboard.js"></script>
+</body>
+</html>

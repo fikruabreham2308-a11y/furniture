@@ -1,0 +1,208 @@
+/* --- 1. Variables & Global Styles --- */
+:root {
+    --primary-gold: #d4af37;
+    --primary-dark: #1a1a1a;
+    --glass-white: rgba(255, 255, 255, 0.95);
+    --text-gray: #555;
+    --border-color: #e0e0e0;
+    --shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: var(--primary-dark);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- 2. Hero Section with Modern Overlay --- */
+.contact-hero {
+    height: 40vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('../image/fike15.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+    animation: fadeInUp 0.8s ease;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* --- 3. Grid Layout --- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 5px; /* Overlap effect into hero */
+    margin-bottom: 80px;
+}
+
+.info-card {
+    background: var(--glass-white);
+    padding: 50px;
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(255,255,255,0.3);
+    height: 100%;
+}
+
+.info-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.info-card h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 4px;
+    background: var(--primary-gold);
+    border-radius: 2px;
+}
+
+/* --- 4. Advanced Form Styling --- */
+.input-group {
+    margin-bottom: 20px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 15px 20px;
+    background: #f1f3f5;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: var(--transition);
+    outline: none;
+}
+
+input:focus, textarea:focus {
+    background: white;
+    border-color: var(--primary-gold);
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
+}
+
+.btn-send {
+    width: 100%;
+    padding: 18px;
+    background: var(--primary-dark);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-send:hover {
+    background: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* --- 5. Contact Info & Interactive Map --- */
+.loc-desc {
+    color: var(--text-gray);
+    margin-bottom: 30px;
+}
+
+.contact-list {
+    list-style: none;
+}
+
+.contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.icon {
+    font-size: 1.4rem;
+    background: rgba(212, 175, 55, 0.15);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+.map-box {
+    margin-top: 30px;
+    position: relative;
+}
+
+.gps-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    padding: 10px 20px;
+    margin-top: 40px;
+    background: var(--primary-gold);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: var(--transition);
+}
+
+.gps-btn:hover {
+    transform: scale(1.05);
+    background: #b8860b;
+}
+
+/* --- 6. Animations --- */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- 7. Responsive Design --- */
+@media (max-width: 992px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        margin-top: 40px;
+    }
+    
+    .contact-hero {
+        height: 30vh;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+}

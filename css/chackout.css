@@ -1,0 +1,324 @@
+/* --- High-End Design System --- */
+:root {
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --primary-soft: #eff6ff;
+    --secondary: #64748b;
+    --accent: #10b981;
+    --danger: #ef4444;
+    --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    --glass: rgba(255, 255, 255, 0.95);
+    --border: #e2e8f0;
+    --text-dark: #0f172a;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* --- Global Resets --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, sans-serif;
+}
+
+body {
+    background: var(--bg-gradient);
+    color: var(--text-dark);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Navigation --- */
+.navbar {
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+/* --- Progress Step Tracker --- */
+.step-progress {
+    display: flex;
+    justify-content: space-between;
+    margin: 3rem 0;
+    position: relative;
+}
+
+.step {
+    flex: 1;
+    text-align: center;
+    font-weight: 600;
+    color: var(--secondary);
+    transition: all 0.4s ease;
+    z-index: 2;
+}
+
+.step span {
+    display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background: #cbd5e1;
+    border-radius: 50%;
+    margin: 0 auto 12px;
+    color: white;
+    transition: 0.3s;
+}
+
+.step.active {
+    color: var(--primary);
+}
+
+.step.active span {
+    background: var(--primary);
+    transform: scale(1.2);
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
+}
+
+/* --- Glassmorphic Card --- */
+.glass-card {
+    background: var(--glass);
+    border-radius: 24px;
+    padding: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: var(--shadow-lg);
+    animation: slideUp 0.6s ease-out;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+    border-left: 5px solid var(--primary);
+    padding-left: 15px;
+}
+
+/* --- Elegant Tables --- */
+.table-responsive { overflow-x: auto; }
+.cart-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.cart-table th {
+    padding: 15px;
+    color: var(--secondary);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+.cart-table td {
+    background: #f8fafc;
+    padding: 20px 15px;
+}
+
+.cart-table tr td:first-child { border-radius: 12px 0 0 12px; }
+.cart-table tr td:last-child { border-radius: 0 12px 12px 0; }
+
+/* --- Input Styling --- */
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.full { grid-column: span 2; }
+
+.input-group label {
+    display: block;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    color: var(--secondary);
+}
+
+input, select {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: 12px;
+    border: 2px solid var(--border);
+    font-size: 1rem;
+    transition: 0.3s;
+    background: #fff;
+}
+
+input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px var(--primary-soft);
+    outline: none;
+}
+
+/* --- Payment Method Cards --- */
+.payment-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.pay-card { position: relative; cursor: pointer; }
+.pay-card input { position: absolute; opacity: 0; }
+
+.pay-content {
+    background: #fff;
+    border: 2px solid var(--border);
+    border-radius: 20px;
+    padding: 2.5rem 1rem;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.pay-content i {
+    font-size: 2.5rem;
+    color: var(--secondary);
+    margin-bottom: 15px;
+    display: block;
+}
+
+.pay-content span { font-weight: 700; font-size: 1rem; }
+
+/* Checked State for Payment */
+.pay-card input:checked + .pay-content {
+    border-color: var(--primary);
+    background: var(--primary-soft);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(37, 99, 235, 0.15);
+}
+
+.pay-card input:checked + .pay-content i { color: var(--primary); }
+
+.check-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--primary);
+    color: white;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    opacity: 0;
+    transform: scale(0);
+    transition: 0.3s;
+}
+
+.pay-card input:checked + .pay-content .check-badge {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* --- Order Summary & Buttons --- */
+.review-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; }
+
+.info-box {
+    background: #f1f5f9;
+    padding: 20px;
+    border-radius: 16px;
+    margin-bottom: 1.5rem;
+}
+
+.info-box h4 { margin-bottom: 10px; font-weight: 800; color: var(--primary); }
+
+.total-row {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 3px solid var(--primary);
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+/* --- Action Buttons --- */
+.cart-actions { display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; }
+
+.btn-primary, .btn-order {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 16px 40px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+}
+
+.btn-primary:hover, .btn-order:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--secondary);
+    border: 2px solid var(--border);
+    padding: 14px 30px;
+    border-radius: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* --- Success Modal --- */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+}
+
+.modal-content {
+    background: white;
+    padding: 4rem;
+    border-radius: 32px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+}
+
+.check-anim {
+    font-size: 5rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+/* --- Mobile View --- */
+@media (max-width: 768px) {
+    .form-grid, .payment-grid, .review-layout { grid-template-columns: 1fr; }
+    .glass-card { padding: 1.5rem; }
+    .cart-actions { flex-direction: column-reverse; gap: 1rem; }
+    .btn-primary, .btn-secondary { width: 100%; }
+}

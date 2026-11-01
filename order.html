@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Your Order | Hossana Furniture</title>
+    <link rel="stylesheet" href="css/order.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-flex">
+            <div class="logo">HOSSANA<span>FURNITURE</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-icons">
+                <div class="cart-wrapper">
+                    <span class="icon">🛒</span>
+                    <span id="cart-count">0</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="order-gallery">
+        <div class="container">
+            <div class="gallery-grid">
+                <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=400" alt="Furniture 1">
+                <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=400" alt="Furniture 2">
+                <img src="https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=400" alt="Furniture 3">
+            </div>
+            <div class="gallery-text">
+                <h2>Almost There!</h2>
+                <p>Review your items and provide delivery details below.</p>
+            </div>
+        </div>
+    </section>
+
+    <main class="container checkout-container">
+        <div class="delivery-form">
+            <div class="form-card">
+                <h3><span class="step">1</span> Delivery Information</h3>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Full Name</label>
+                        <input type="text" id="orderName" placeholder="Enter your name">
+                    </div>
+                    <div class="input-group">
+                        <label>Phone Number</label>
+                        <input type="tel" id="orderPhone" placeholder="0911...">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Specific Area (e.g. Near Hossana University)</label>
+                    <input type="text" id="orderArea" placeholder="Sub-city or Landmark">
+                </div>
+                <div class="input-group">
+                    <label>Order Notes / Specific Instructions</label>
+                    <textarea id="orderNotes" rows="3" placeholder="Any special requests?"></textarea>
+                </div>
+            </div>
+
+            <div class="form-card">
+                <h3><span class="step">2</span> Payment Method</h3>
+                <div class="payment-options">
+                    <label class="pay-option">
+                        <input type="radio" name="pay" value="cod" checked>
+                        <span>Cash on Delivery</span>
+                    </label>
+                    <label class="pay-option">
+                        <input type="radio" name="pay" value="bank">
+                        <span>Bank Transfer (CBE / TeleBirr)</span>
+                
+                    </label>
+                </div>
+            </div>
+            
+            <button class="btn-place-order" onclick="submitFinalOrder()">Place Order Now</button>
+        </div>
+
+        <aside class="order-summary">
+            <h3>Order Summary</h3>
+            <div id="summary-items" class="summary-items">
+                </div>
+            <hr>
+            <div class="summary-totals">
+                <div class="total-row"><span>Subtotal:</span> <span id="subtotal">0 ETB</span></div>
+                <div class="total-row"><span>Delivery:</span> <span class="free">FREE</span></div>
+                <div class="total-row grand-total"><span>Total:</span> <span id="grandTotal">0 ETB</span></div>
+            </div>
+        </aside>
+    </main>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="icon-circle">✓</div>
+            <h2>Order Successful!</h2>
+            <p>Your Order ID is <strong id="finalOrderID">#HSN-0000</strong></p>
+            <p>Our team will contact you shortly to arrange delivery.</p>
+            <button onclick="window.location.href='index.html'" class="btn-home">Return to Home</button>
+        </div>
+    </div>
+<script src="js/order.js"></script>
+</body>
+</html>

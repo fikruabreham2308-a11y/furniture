@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROHAM | Smart Admin Dashboard</title>
+    <link rel="stylesheet" href="css/Admindashibord.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="sidebar">
+    <div class="sidebar-top">
+        <h2>ROHAM PANEL</h2>
+        <ul>
+            <li onclick="showPage('dashboard')">🏠 Dashboard</li>
+            <li onclick="showPage('users')">👥 Users</li>
+            <li onclick="showPage('products')">🛍️ Products</li>
+            <li onclick="showPage('inventory')">📊 Inventory</li>
+            <li onclick="showPage('orders')">📦 Orders</li>
+            <li onclick="showPage('reports')">📈 Reports</li>
+        </ul>
+    </div>
+    <div class="sidebar-bottom">
+        <li onclick="location.href='index.html'" class="logout-link">🚪 Logout</li>
+    </div>
+</div>
+
+<div class="main">
+    <div id="dashboard" class="page">
+        <h1>Dashboard Overview</h1>
+        <div class="cards">
+            <div class="card"><h2 id="statUsers">0</h2><p>Total Users</p></div>
+            <div class="card"><h2 id="statProducts">0</h2><p>Total Products</p></div>
+            <div class="card"><h2 id="statOrders">0</h2><p>Total Orders</p></div>
+            <div class="card"><h2 id="statRevenue">0</h2><p>Total Revenue (ETB)</p></div>
+            <div class="card"><h2 id="statDelivered">0</h2><p>Delivered Items</p></div>
+        </div>
+    </div>
+
+    <div id="users" class="page hidden">
+        <h1>User Management</h1>
+        <div class="input-form-grid">
+            <input id="username" placeholder="Username">
+            <input id="email" placeholder="Email">
+            <input id="password" type="password" placeholder="Password">
+            <input id="phone" placeholder="Phone Number">
+            <input id="address" placeholder="Address">
+            <select id="role">
+                <option>Admin</option>
+                <option>Employee</option>
+                <option>Delivery</option>
+            </select>
+            <button class="btn-add" onclick="addUser()">Add User</button>
+        </div>
+        <table class="advanced-table">
+            <thead>
+                <tr><th>Name</th><th>Email</th><th>Role</th><th>Phone</th><th>Action</th></tr>
+            </thead>
+            <tbody id="userTable"></tbody>
+        </table>
+    </div>
+
+    <div id="products" class="page hidden">
+        <h1>Product Management</h1>
+        <div class="input-form-grid">
+            <input id="pid" placeholder="Product ID">
+            <input id="pname" placeholder="Product Name">
+            <input id="pprice" type="number" placeholder="Price (ETB)">
+            <select id="pcategory">
+                <option>Laptop</option>
+                <option>Smartphone</option>
+                <option>Computer</option>
+                <option>Other</option>
+            </select>
+            <select id="pquality">
+                <option>Premium</option>
+                <option>Standard</option>
+            </select>
+            <select id="pstatus">
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+            </select>
+            <input type="file" id="pimage" accept="image/*">
+            <button class="btn-add" id="prodBtn" onclick="addProduct()">Add Product</button>
+        </div>
+
+        <table class="advanced-table">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                    <th>Promotion</th>
+                </tr>
+            </thead>
+            <tbody id="productTable"></tbody>
+        </table>
+    </div>
+
+    <div id="inventory" class="page hidden">
+        <h1>Stock Inventory</h1>
+        <table class="advanced-table">
+            <thead>
+                <tr><th>Product</th><th>Category</th><th>Current Stock</th><th>Quality</th><th>Alert</th></tr>
+            </thead>
+            <tbody id="inventoryTable"></tbody>
+        </table>
+    </div>
+
+    <div id="orders" class="page hidden">
+        <h1>Order Management</h1>
+        <table class="advanced-table">
+            <thead>
+                <tr><th>Order ID</th><th>Customer</th><th>Product</th><th>Status</th><th>Action</th></tr>
+            </thead>
+            <tbody id="orderTable"></tbody>
+        </table>
+    </div>
+
+    <div id="reports" class="page hidden">
+        <h1>Sales Analysis</h1>
+        <div class="chart-container" style="background: white; padding: 20px; border-radius: 15px;">
+            <canvas id="salesChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<script src="js/Admindashiboard.js"></script>
+</body>
+</html>

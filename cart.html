@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Hossana Furniture</title>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-flex">
+            <div class="logo">Hossana <span>Furniture</span></div>
+        </div>
+    </nav>
+
+    <main class="container checkout-wrapper">
+        <div class="step-progress">
+            <div class="step active" id="step1">1. Cart</div>
+            <div class="step" id="step2">2. Info</div>
+            <div class="step" id="step3">3. Payment</div>
+        </div>
+
+        <section id="cart-section" class="checkout-step">
+            <div class="cart-card">
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Qty</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-table-body"></tbody>
+                </table>
+                <div class="cart-actions">
+                    <button class="btn-clear" onclick="clearCart()">🗑 Clear Cart</button>
+                    <button class="btn-next" onclick="showSection('info-section')">Proceed to Checkout →</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="info-section" class="checkout-step" style="display:none;">
+            <div class="form-card">
+                <h2>Shipping Information</h2>
+                <div class="form-grid">
+                    <input type="text" id="cust-name" placeholder="Full Name" required>
+                    <input type="tel" id="cust-phone" placeholder="Phone Number (+251...)" required>
+                    <input type="text">
+                    <input type="text" id="cust-address" placeholder="Specific Area (e.g., Near Stadium)" required>
+                </div>
+                <div class="cart-actions">
+                    <button class="btn-back" onclick="showSection('cart-section')">Back</button>
+                    <button class="btn-next" onclick="showSection('payment-section')">Next: Payment</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="payment-section" class="checkout-step" style="display:none;">
+            <div class="form-card">
+                <h2>Select Payment Method</h2>
+                <div class="payment-options">
+                    <label class="pay-option">
+                        <input type="radio" name="payment" value="Cash on Delivery" checked>
+                        <span>💵 Cash on Delivery</span>
+                    </label>
+                    <label class="pay-option">
+                        <input type="radio" name="payment" value="Telebirr">
+                        <span>📱 Telebirr</span>
+                    </label>
+                    <label class="pay-option">
+                        <input type="radio" name="payment" value="CBE Birr">
+                        <span>🏦 CBE Birr</span>
+                    </label>
+                </div>
+                
+                <div class="upload-area">
+                    <p>Upload Payment Screenshot (For Telebirr/CBE):</p>
+                    <input type="file" id="payment-screenshot" accept="image/*">
+                </div>
+
+                <div class="cart-actions">
+                    <button class="btn-back" onclick="showSection('info-section')">Back</button>
+                    <button class="btn-order" onclick="placeOrder()">Place Order & View Details</button>
+                </div>
+            </div>
+        </section>
+
+        <div id="success-modal" class="modal" style="display:none;">
+            <div class="modal-content">
+                <div class="success-icon">✅</div>
+                <h2>Order Successful!</h2>
+                <p>Thank you for shopping with Hossana Furniture.</p>
+                <div id="order-summary-details" class="final-details"></div>
+                <button onclick="window.location.href='index.html'" class="btn-next">Back to Home</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/cart.js"></script>
+</body>
+</html>
